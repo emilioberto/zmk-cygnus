@@ -5,7 +5,7 @@
 #include <dt-bindings/zmk/gpios.h>
 
 / {
-    compatible = "mia_tastiera_hw"; // Il tuo identificatore unico per lo shield
+    compatible = "cygnus"; // Il tuo identificatore unico per lo shield
 
     keyboard {
         compatible = "zmk,keyboard";
