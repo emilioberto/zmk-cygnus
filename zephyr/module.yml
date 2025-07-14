@@ -1,3 +1,13 @@
+# zmk/zmk-cygnus/zephyr/module.yml
+# ... (altre definizioni già presenti)
+
+# Questo blocco è spesso già presente. Assicurati che 'boards/shields' sia incluso.
 build:
-  settings:
-    board_root: .
+  kconfig: Kconfig # Questo si riferisce al Kconfig principale di ZMK
+  cmake: .
+  # Aggiungi un 'include' per le tue definizioni di shield custom.
+  # Zephyr cerca le definizioni di Kconfig e devicetree in queste cartelle.
+  # Il percorso deve essere relativo alla root del tuo repository ZMK (zmk-cygnus)
+  # dove si trova questo module.yml.
+  include:
+    - boards/shields # Questo dovrebbe includere la tua cartella 'cygnus'
