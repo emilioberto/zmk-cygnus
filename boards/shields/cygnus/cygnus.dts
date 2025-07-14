@@ -1,0 +1,43 @@
+// SPDX-License-Identifier: MIT
+// Copyright (c) [Anno] [Il tuo nome/nickname]
+
+#include <dt-bindings/zmk/matrix.h>
+#include <dt-bindings/zmk/gpios.h>
+
+/ {
+    compatible = "mia_tastiera_hw"; // Il tuo identificatore unico per lo shield
+
+    keyboard {
+        compatible = "zmk,keyboard";
+        label = "Mia Tastiera Handwired Custom";
+        status = "okay";
+
+        // --- Configurazione della Matrice dei Tasti ---
+        // DEVI AGGIORNARE QUESTI VALORI ESATTI in base al tuo cablaggio
+        matrix_rows = <4>; // Hai 4 righe
+        matrix_cols = <6>;  // Hai 6 colonne
+
+        // Definisci i pin delle righe (rows) - Dalla Porta 1
+        // Per convenzione, le righe sono spesso impostate come GPIO_ACTIVE_HIGH
+        row-gpios
+            = <&gpio1 15 GPIO_ACTIVE_HIGH>  /* D18 P1.15 */
+            , <&gpio1 13 GPIO_ACTIVE_HIGH>  /* D15 P1.13 */
+            , <&gpio1 11 GPIO_ACTIVE_HIGH>  /* D14 P1.11 */
+            , <&gpio1 10 GPIO_ACTIVE_HIGH>  /* D16 P1.10 */
+            ;
+
+        // Definisci i pin delle colonne (cols) - Dalla Porta 0
+        // Per convenzione, le colonne sono spesso impostate con pull-up e GPIO_ACTIVE_LOW
+        col-gpios
+            = <&gpio0 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>  /* D1 P0.06 */
+            , <&gpio0 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>  /* D0 P0.08 */
+            , <&gpio0 17 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)> /* D2 P0.17 */
+            , <&gpio0 20 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)> /* D3 P0.20 */
+            , <&gpio0 22 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)> /* D4 P0.22 */
+            , <&gpio0 24 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)> /* D5 P0.24 */
+            ;
+    };
+
+    // Puoi aggiungere qui la configurazione per encoder, LED, ecc.,
+    // usando la stessa logica P0.xx o P1.xx a seconda dei pin scelti.
+};
