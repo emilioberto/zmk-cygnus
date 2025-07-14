@@ -19,7 +19,21 @@
 #
 ---
 include:
+  # Lascia le righe della Corne se vuoi continuare a buildare anche quelle,
+  # altrimenti puoi rimuoverle.
   - board: nice_nano_v2
     shield: corne_left
   - board: nice_nano_v2
     shield: corne_right
+
+  # AGGIUNGI QUESTA SEZIONE PER LA TUA TASTIERA CYGNUS
+  - board: nice_nano_v2 # La board del tuo controller nRF52840
+    shield: cygnus      # Il nome della cartella del tuo nuovo shield (esattamente "cygnus")
+    # Opzionale: puoi dare un nome più descrittivo all'artifact
+    artifact-name: cygnus_handwired
+    # Opzionale: Se la tua configurazione (corne.conf/corne.keymap) è in una sottocartella specifica
+    # all'interno di 'config/', puoi specificarla qui.
+    # Se i tuoi file sono in 'config/corne/', non è strettamente necessario,
+    # ma se li sposti in 'config/cygnus_config/', allora lo sarà.
+    # Esempio se hai una cartella 'config/cygnus_config/':
+    # zmk-config: config/cygnus_config
